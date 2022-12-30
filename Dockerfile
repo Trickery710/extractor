@@ -1,5 +1,5 @@
-#extractor build
-FROM ubuntu:rolling
+#docker build -t extractor:local .
+FROM ubuntu:20.04
 
 # Set shell to bash instead of dash
 RUN export DEBIAN_FRONTEND=noninteractive
@@ -35,13 +35,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     squashfs-tools \
     srecord \
     tar \
+    fakeroot \
+    python-magic \
     wget \
     zlib1g-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
     
 
-	COPY . .
+
 
 # Install sasquatch to extract non-standard SquashFS images
 RUN git clone https://github.com/Trickery710/sasquatch /tmp/sasquatch && \
@@ -83,6 +85,7 @@ RUN git clone https://github.com/Trickery710/yaffshiv /tmp/yaffshiv && \
 VOLUME [ "/extract" ]
 WORKDIR /extract
 COPY . .
+COPY  . /home/casey/projects/docker/firmadyne/scripts/*
 # Call binwalk executable with arguments
-ENTRYPOINT [ "extract.sh" ]
+ENTRYPOINT [ "extractor.py " ]
 CMD [ "ls" ]

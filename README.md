@@ -20,7 +20,7 @@ git clone https://github.com/firmadyne/extractor.git
 cd extractor
 ./extract.sh path/to/firmware.img path/to/output/directory
 ```
-
+fakeroot psycopg2 python-magic
 Dependencies
 ============
 * [fakeroot](https://fakeroot.alioth.debian.org)

@@ -1,8 +1,8 @@
 docker run -it  \
-  #-v "$(pwd):/binwalk" \
+  #-v "$(pwd):/extractor" \
   #-w /binwalk 
   --name extractor \
-  extractor:latest \
+  extractor:local \
   #--run-as=root \
   /bin/bash \
   "$@"
