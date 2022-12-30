@@ -16,7 +16,7 @@ import tempfile
 import traceback
 
 import magic
-import binwalk
+#import binwalk
 
 class Extractor(object):
     """

@@ -42,7 +42,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
     
-
+ADD ./extractor.py .
 
 
 # Install sasquatch to extract non-standard SquashFS images
@@ -84,8 +84,7 @@ RUN git clone https://github.com/Trickery710/yaffshiv /tmp/yaffshiv && \
 # Workspace volume from host
 VOLUME [ "/extract" ]
 WORKDIR /extract
-COPY . .
-COPY  . /home/casey/projects/docker/firmadyne/scripts/*
+
 # Call binwalk executable with arguments
-ENTRYPOINT [ "extractor.py " ]
-CMD [ "ls" ]
+ENTRYPOINT [ . ]
+#CMD [ "ls" ]

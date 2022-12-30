@@ -14,7 +14,7 @@ docker run --rm -t -i --tmpfs /tmp:rw,size=${mem} \
   -v "${indir}":/firmware-in:ro \
   -v "${outdir}":/firmware-out \
   "ddcc/firmadyne-extractor:latest" \
-  fakeroot /home/extractor/extractor/extractor.py \
+  fakeroot extractor.py \
   -np \
   /firmware-in/"${infilebn}" \
   /firmware-out

@@ -1,10 +1,9 @@
-docker run -it  \
-  #-v "$(pwd):/extractor" \
-  #-w /binwalk 
-  --name extractor \
-  extractor:local \
-  #--run-as=root \
-  /bin/bash \
-  "$@"
+docker run --rm -t -i --tmpfs /tmp:rw,size=${mem} \
+  -v "$(pwd):/extractor" \
+  -w /extractor \
+   "ddcc/firmadyne-extractor:latest" \
+  #--name extractor \
+	#--run-as=root \
+  "$@" 
   
   
