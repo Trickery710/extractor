@@ -14,7 +14,6 @@ from stat import S_ISREG
 import shutil
 import tempfile
 import traceback
-
 import magic
 #import binwalk
 

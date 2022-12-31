@@ -13,7 +13,7 @@ infilebn=$(basename "${infile}")
 docker run --rm -t -i --tmpfs /tmp:rw,size=${mem} \
   -v "${indir}":/firmware-in:ro \
   -v "${outdir}":/firmware-out \
-  "ddcc/firmadyne-extractor:latest" \
+  "ddcc/firmadyne-extractor" \
   fakeroot extractor.py \
   -np \
   /firmware-in/"${infilebn}" \
