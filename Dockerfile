@@ -1,5 +1,5 @@
 #docker build -t ddcc/firmadyne-extractor .
-FROM ubuntu:20.04
+FROM ubuntu:rolling
 
 # Set shell to bash instead of dash
 RUN export DEBIAN_FRONTEND=noninteractive
